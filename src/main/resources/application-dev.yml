@@ -1,0 +1,17 @@
+server:
+  port: 6080
+  jetty:
+    min-threads: 2
+    max-threads: 10
+tripevent:
+  kafka:
+    group:
+      id: air_queue
+    bootstrap:
+      servers: 124.251.115.187:9092
+flightcdm:
+  kafka:
+    group:
+      id: air_queue
+    bootstrap:
+      servers: 124.251.115.187:9092
