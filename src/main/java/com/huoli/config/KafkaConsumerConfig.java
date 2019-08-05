@@ -72,7 +72,7 @@ public class KafkaConsumerConfig {
 	public ConcurrentKafkaListenerContainerFactory<String, String> tripEventKafkaListenerContainerFactory() {
 		ConcurrentKafkaListenerContainerFactory<String, String> factory = new ConcurrentKafkaListenerContainerFactory<String, String>();
 		factory.setConsumerFactory(tripEventConsumerFactory());
-		factory.setConcurrency(1);// 启动一个监听,为了顺序消费,如果不考虑顺序和负载，可以考虑多个
+		factory.setConcurrency(1);// 最好与Topic分区数保持一致
 		return factory;
 	}
 
@@ -80,7 +80,7 @@ public class KafkaConsumerConfig {
 	public ConcurrentKafkaListenerContainerFactory<String, String> flightCdmKafkaListenerContainerFactory() {
 		ConcurrentKafkaListenerContainerFactory<String, String> factory = new ConcurrentKafkaListenerContainerFactory<String, String>();
 		factory.setConsumerFactory(flightCdmConsumerFactory());
-		factory.setConcurrency(1);
+		factory.setConcurrency(1);// 最好与Topic分区数保持一致
 		return factory;
 	}
 
